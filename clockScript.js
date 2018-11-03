@@ -22,11 +22,10 @@ const setClock = ( function() {
         let theHours = theDate.getHours();
         let theMinutes = theDate.getMinutes();
         let theSeconds = theDate.getSeconds();
-        
+
         //Change clock textContent perpetually
         
         clockDiv.textContent = `${theHours}:${theMinutes}:${theSeconds}`;
 
     }, 1000 );
-
 }());
