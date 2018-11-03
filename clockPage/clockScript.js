@@ -23,9 +23,30 @@ const setClock = ( function() {
         let theMinutes = theDate.getMinutes();
         let theSeconds = theDate.getSeconds();
 
-        //Change clock textContent perpetually
-        
-        clockDiv.textContent = `${theHours}:${theMinutes}:${theSeconds}`;
-
+        //Add 'am' or 'pm' and convert from 24hr time to 12hr time. also add 0 before single digit units.
+        if ( theHours < 12 ) {
+            if ( theHours.toString().length === 1 ) {
+                theHours = `0${theHours}`;
+            };
+            if ( theMinutes.toString().length === 1 ) {
+                theMinutes = `0${theMinutes}`;   
+            };
+            if ( theSeconds.toString().length === 1 ) {
+                theSeconds = `0${theSeconds}`;
+            };
+            clockDiv.textContent = `${theHours}:${theMinutes}:${theSeconds} am`
+        }   else {
+                theHours = theHours - 12;
+                if ( theHours.toString().length === 1 ) {
+                    theHours = `0${theHours}`;
+                };
+                if ( theMinutes.toString().length === 1 ) {
+                    theMinutes = `0${theMinutes}`;   
+                };
+                if ( theSeconds.toString().length === 1 ) {
+                    theSeconds = `0${theSeconds}`;
+                };
+                clockDiv.textContent = `${theHours}:${theMinutes}:${theSeconds} pm`
+            };
     }, 1000 );
 }());
