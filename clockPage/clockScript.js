@@ -10,8 +10,7 @@ const setClock = ( function() {
     //Change the text of the div with id "clock"
     
     let clockDiv = document.getElementById('clock');
-    clockDiv.textContent = `${theHours}:${theMinutes}:${theSeconds}`;
-
+    
     //Set a function to change the div clock textContent perpetually, every second
 
     let tickTock = setInterval( function() {
